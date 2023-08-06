@@ -51,4 +51,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function contactContactinformation(){
+        return $this->hasOneThrough(Contactinformation::class, Contact::class);
+    }
+
+    // One To One (Polymorphic)
+    // public function image(){
+    //     return $this->morphOne(Image::class, 'imagable');
+    // }
+ 
+     // One To Many (Polymorphic)
+    public function image(){
+        return $this->morphMany(Image::class, 'imagable');
+    }
 }

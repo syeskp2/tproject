@@ -24,4 +24,18 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    // One To One (Polymorphic)
+    // public function image(){
+    //     return $this->morphOne(Image::class, 'imagable');
+    // }
+    
+     // One To Many (Polymorphic)
+    public function image(){
+        return $this->morphMany(Image::class, 'imagable');
+    }
+
+    public function tags(){
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

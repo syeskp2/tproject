@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\CookieController;
+use App\Http\Controllers\TestapiController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/test', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -28,7 +29,8 @@ Route::post('form', [TodoController::class, 'store'])->name('store-todo');
 Route::put('update/{todo}', [TodoController::class, 'update'])->name('update-todo');
 Route::get('/edit/{todo_id}', [TodoController::class, 'index']);
 
-Route::get('/', [TestController::class, 'index']);
+//for relationship
+Route::get('/test', [TestController::class, 'index']);
 
 // for contact form 
 Route::get('contact', [ContactFormController::class, 'index']);

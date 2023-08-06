@@ -115,3 +115,10 @@ Guest
 
 <!-- for validation request class -->
 php artisan make:request ContactFormRequest
+
+<!-- for api -->
+php artisan make:mode Post -mc --api
+php artisan migrate:fresh
+
+or 
+php artisan migrate --path=/database/migrations/fileName.php
